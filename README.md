@@ -1,2 +1,5 @@
 # A2Z-Worksheets
-By-Arpit Thakur
+Arpit
+
+Thakur
+
