@@ -1,353 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A2Z Worksheets - Fun Learning for Kids!</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fun Kids Worksheets - Free Printables</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --orange: #ff6b35;
+      --blue: #4a90e2;
+      --light-blue: #e6f3ff;
+      --yellow: #ffc107;
+    }
 
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            color: #333;
-            min-height: 100vh;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header {
-            background: #4ecdc4;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(to bottom, #ffffff, #f8fbff);
+    }
 
-        h1 {
-            font-size: 3em;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
-        }
+    header {
+      background: linear-gradient(135deg, var(--blue) 0%, #357abd 100%);
+      color: white;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
 
-        .subtitle {
-            font-size: 1.5em;
-            color: #fff;
-            font-weight: bold;
-        }
+    .logo {
+      font-size: 1.9rem;
+      font-weight: bold;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    .logo span { color: var(--yellow); }
 
-        .hero {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+    }
 
-        .hero h2 {
-            font-size: 2.5em;
-            color: #e74c3c;
-            margin-bottom: 20px;
-        }
+    nav a:hover { color: var(--yellow); }
 
-        .hero p {
-            font-size: 1.3em;
-            color: #555;
-            margin-bottom: 30px;
-        }
+    .btn-signup {
+      background: var(--orange);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 0 #d35400;
+    }
 
-        .search-box {
-            max-width: 500px;
-            margin: 0 auto 40px;
-            position: relative;
-        }
+    .hero {
+      background: linear-gradient(to bottom, var(--light-blue), white);
+      text-align: center;
+      padding: 5rem 5% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .search-box input {
-            width: 100%;
-            padding: 15px 20px 15px 50px;
-            font-size: 1.2em;
-            border: 3px solid #4ecdc4;
-            border-radius: 50px;
-            outline: none;
-            font-family: inherit;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+    .hero h1 {
+      font-size: 3.1rem;
+      margin-bottom: 0.8rem;
+      color: #d35400;
+    }
 
-        .search-box::before {
-            content: "🔍";
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5em;
-        }
+    .hero h1 span { color: var(--blue); }
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
+    .hero p {
+      font-size: 1.35rem;
+      margin: 1.2rem 0 2rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
+    .btn-big {
+      padding: 1rem 2.2rem;
+      font-size: 1.3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .category-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
+    .btn-orange   { background: var(--orange); color: white; }
+    .btn-blue     { background: var(--blue);    color: white; }
 
-        .category-card h3 {
-            font-size: 1.8em;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
+    .subjects {
+      padding: 4rem 5%;
+      text-align: center;
+      background: white;
+    }
 
-        .worksheets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
+    .subjects h2 {
+      font-size: 2.6rem;
+      margin-bottom: 3rem;
+      color: #444;
+    }
 
-        .worksheet-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-        .worksheet-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
+    .subject-card {
+      background: var(--light-blue);
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      transition: all 0.25s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    }
 
-        .worksheet-preview {
-            height: 180px;
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            color: white;
-        }
+    .subject-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
 
-        .worksheet-info {
-            padding: 20px;
-        }
+    .subject-card i {
+      font-size: 3.8rem;
+      margin-bottom: 1.2rem;
+      color: var(--orange);
+    }
 
-        .worksheet-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+    .subject-card h3 {
+      font-size: 1.6rem;
+      margin: 0.8rem 0;
+      color: #222;
+    }
 
-        .worksheet-grade {
-            color: #e74c3c;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+    .popular {
+      padding: 5rem 5% 6rem;
+      background: #fffaf0;
+      text-align: center;
+    }
 
-        .download-btn {
-            width: 100%;
-            padding: 12px;
-            background: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-family: inherit;
-        }
+    .popular h2 {
+      font-size: 2.6rem;
+      margin-bottom: 3.5rem;
+    }
 
-        .download-btn:hover {
-            background: #229954;
-        }
+    .worksheets-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .no-results {
-            text-align: center;
-            grid-column: 1 / -1;
-            padding: 60px;
-            color: #777;
-            font-size: 1.5em;
-        }
+    .worksheet-preview {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
 
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 60px;
-        }
+    .worksheet-preview:hover {
+      transform: scale(1.04);
+    }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            .hero h2 { font-size: 2em; }
-            .categories { grid-template-columns: 1fr; }
-        }
+    .preview-img {
+      height: 220px;
+      background: #f0f4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #aaa;
+    }
 
-        .hidden { display: none; }
-    </style>
+    .preview-img i { opacity: 0.4; }
+
+    .preview-content {
+      padding: 1.6rem;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 3rem 5% 2rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 1rem;
+      opacity: 0.8;
+    }
+
+    .social-links a:hover { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero p  { font-size: 1.15rem; }
+      nav a    { margin-left: 1rem; font-size: 0.95rem; }
+      header   { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>🎓 A2Z Worksheets</h1>
-        <div class="subtitle">Fun & Free Printable Worksheets for Kids!</div>
-    </header>
 
-    <div class="container">
-        <div class="hero">
-            <h2>Download Free Worksheets for All Grades!</h2>
-            <p>Math, English, Science, and more! Perfect for homework, practice, and fun learning.</p>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search worksheets... (Math, Alphabet, Numbers, etc.)">
-            </div>
-        </div>
+<header>
+  <div class="logo">✏️Kids<span>Worksheets</span></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Browse Worksheets</a>
+    <a href="#">Contact</a>
+  </nav>
+  <a href="#" class="btn-signup">Sign Up</a>
+</header>
 
-        <div class="categories" id="categories">
-            <div class="category-card" data-category="math">
-                <div class="category-icon">🔢</div>
-                <h3>Mathematics</h3>
-                <p>Addition, Subtraction, Shapes & More!</p>
-            </div>
-            <div class="category-card" data-category="english">
-                <div class="category-icon">📝</div>
-                <h3>English</h3>
-                <p>Alphabet, Reading, Writing Practice!</p>
-            </div>
-            <div class="category-card" data-category="science">
-                <div class="category-icon">🔬</div>
-                <h3>Science</h3>
-                <p>Animals, Plants, Weather & Experiments!</p>
-            </div>
-            <div class="category-card" data-category="all">
-                <div class="category-icon">🌈</div>
-                <h3>All Worksheets</h3>
-                <p>Browse everything!</p>
-            </div>
-        </div>
+<section class="hero">
+  <h1>Fun & <span>Educational</span><br>Printable Worksheets for Kids!</h1>
+  <p>Free worksheets for Math, English, Hindi, and Science.<br>Learn and have fun at the same time!</p>
 
-        <div class="worksheets-grid" id="worksheetsGrid">
-            <!-- Worksheets will be populated by JavaScript -->
-        </div>
+  <div class="hero-buttons">
+    <a href="#" class="btn-big btn-orange">Browse Worksheets</a>
+    <a href="#" class="btn-big btn-blue">Get Started</a>
+  </div>
+</section>
+
+<section class="subjects">
+  <h2>Explore Subjects</h2>
+  <div class="subject-grid">
+    <div class="subject-card">
+      <i class="fas fa-calculator"></i>
+      <h3>Math Worksheets</h3>
+      <p>Addition • Subtraction • Shapes • Numbers</p>
+      <a href="#" class="btn-big btn-blue" style="font-size:1.1rem; padding:0.8rem 1.6rem;">Explore Math</a>
     </div>
 
-    <footer>
-        <p>© 2024 A2Z Worksheets | Made with ❤️ for kids who love to learn!</p>
-        <p>📧 contact@a2zworksheets.com | All worksheets are free to download and print!</p>
-    </footer>
+    <div class="subject-card">
+      <i class="fas fa-font"></i>
+      <h3>English Worksheets</h3>
+      <p>Alphabet • Reading • Phonics • Grammar</p>
+      <a href="#" class="btn-big btn-blue" style="font-size:1.1rem; padding:0.8rem 1.6rem;">Explore English</a>
+    </div>
 
-    <script>
-        // Sample worksheets data
-        const worksheets = [
-            { id: 1, title: "Addition Practice 1-10", grade: "Grade 1", category: "math", preview: "1+2=?" },
-            { id: 2, title: "Alphabet Tracing A-M", grade: "Kindergarten", category: "english", preview: "ABC" },
-            { id: 3, title: "Number Counting 1-20", grade: "Pre-K", category: "math", preview: "123" },
-            { id: 4, title: "Animal Names Matching", grade: "Grade 1", category: "science", preview: "🐘" },
-            { id: 5, title: "Subtraction Fun 1-10", grade: "Grade 1", category: "math", preview: "5-3=?" },
-            { id: 6, title: "Sight Words Practice", grade: "Kindergarten", category: "english", preview: "the cat" },
-            { id: 7, title: "Shapes Recognition", grade: "Pre-K", category: "math", preview: "🔺🔲" },
-            { id: 8, title: "Parts of a Plant", grade: "Grade 2", category: "science", preview: "🌱" },
-            { id: 9, title: "Vowels Practice", grade: "Grade 1", category: "english", preview: "A E I O U" },
-            { id: 10, title: "Multiplication Basics", grade: "Grade 3", category: "math", preview: "2×3=?" },
-            { id: 11, title: "Weather Chart", grade: "Grade 1", category: "science", preview: "☀️🌧️" },
-            { id: 12, title: "Rhyming Words", grade: "Kindergarten", category: "english", preview: "cat hat" }
-        ];
+    <div class="subject-card">
+      <i class="fas fa-language"></i>
+      <h3>Hindi Worksheets</h3>
+      <p>स्वर • व्यंजन • लेखन अभ्यास • शब्द</p>
+      <a href="#" class="btn-big btn-blue" style="font-size:1.1rem; padding:0.8rem 1.6rem;">Explore Hindi</a>
+    </div>
 
-        const searchInput = document.getElementById('searchInput');
-        const categories = document.querySelectorAll('.category-card');
-        const worksheetsGrid = document.getElementById('worksheetsGrid');
+    <div class="subject-card">
+      <i class="fas fa-flask"></i>
+      <h3>Science Worksheets</h3>
+      <p>Animals • Plants • Body • Experiments</p>
+      <a href="#" class="btn-big btn-blue" style="font-size:1.1rem; padding:0.8rem 1.6rem;">Explore Science</a>
+    </div>
+  </div>
+</section>
 
-        function filterWorksheets(category = 'all', searchTerm = '') {
-            let filtered = worksheets.filter(worksheet => {
-                const matchesCategory = category === 'all' || worksheet.category === category;
-                const matchesSearch = worksheet.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                    worksheet.grade.toLowerCase().includes(searchTerm.toLowerCase());
-                return matchesCategory && matchesSearch;
-            });
+<section class="popular">
+  <h2>Popular Worksheets</h2>
+  <div class="worksheets-showcase">
+    <div class="worksheet-preview">
+      <div class="preview-img"><i class="fas fa-plus"></i></div>
+      <div class="preview-content">
+        <h3>Addition Practice</h3>
+        <p>Solve the sums! Fun with numbers</p>
+      </div>
+    </div>
 
-            displayWorksheets(filtered);
-        }
+    <div class="worksheet-preview">
+      <div class="preview-img"><i class="fas fa-book-open"></i></div>
+      <div class="preview-content">
+        <h3>Reading Comprehension</h3>
+        <p>The Little Cat – read & answer</p>
+      </div>
+    </div>
 
-        function displayWorksheets(workheetsList) {
-            worksheetsGrid.innerHTML = '';
+    <div class="worksheet-preview">
+      <div class="preview-img"><i class="fas fa-pen"></i></div>
+      <div class="preview-content">
+        <h3>Hindi Tracing Sheet</h3>
+        <p>क ख ग घ – practice writing</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            if (worksheetsList.length === 0) {
-                worksheetsGrid.innerHTML = `
-                    <div class="no-results">
-                        <div style="font-size: 4em; margin-bottom: 20px;">🔍</div>
-                        <h3>No worksheets found!</h3>
-                        <p>Try a different search or category.</p>
-                    </div>
-                `;
-                return;
-            }
+<footer>
+  <h3>Follow Us</h3>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+  </div>
+  <p style="margin-top:2rem; opacity:0.8;">© 2025 Kids Worksheets • Made with ❤️ for little learners</p>
+</footer>
 
-            worksheetsList.forEach(worksheet => {
-                const worksheetCard = document.createElement('div');
-                worksheetCard.className = 'worksheet-card';
-                worksheetCard.innerHTML = `
-                    <div class="worksheet-preview">${worksheet.preview}</div>
-                    <div class="worksheet-info">
-                        <div class="worksheet-title">${worksheet.title}</div>
-                        <div class="worksheet-grade">${worksheet.grade}</div>
-                        <button class="download-btn" onclick="downloadWorksheet(${worksheet.id})">
-                            📥 Download PDF
-                        </button>
-                    </div>
-                `;
-                worksheetsGrid.appendChild(worksheetCard);
-            });
-        }
-
-        function downloadWorksheet(id) {
-            // In a real website, this would link to actual PDF files
-            // For demo, we'll show an alert and simulate download
-            alert(`🎉 Great choice! Downloading "${worksheets.find(w => w.id === id).title}"...\n\n(In a real site, this would download a PDF file!)`);
-            
-            // Simulate download link (you'd replace with real PDF URLs)
-            const link = document.createElement('a');
-            link.href = '#';
-            link.download = `a2z-worksheet-${id}.pdf`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // Event listeners
-        categories.forEach(category => {
-            category.addEventListener('click', () => {
-                const categoryType = category.dataset.category;
-                filterWorksheets(categoryType, searchInput.value);
-            });
-        });
-
-        searchInput.addEventListener('input', (e) => {
-            filterWorksheets('all', e.target.value);
-        });
-
-        // Initial load
-        displayWorksheets(worksheets);
-    </script>
 </body>
 </html>
