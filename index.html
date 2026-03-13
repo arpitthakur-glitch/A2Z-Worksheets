@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2Z Worksheets - Fun Learning for Kids!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #4ecdc4;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            font-size: 1.2em;
+            border: 3px solid #4ecdc4;
+            border-radius: 50px;
+            outline: none;
+            font-family: inherit;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .category-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .worksheets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .worksheet-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .worksheet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .worksheet-preview {
+            height: 180px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+        }
+
+        .worksheet-info {
+            padding: 20px;
+        }
+
+        .worksheet-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .worksheet-grade {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-family: inherit;
+        }
+
+        .download-btn:hover {
+            background: #229954;
+        }
+
+        .no-results {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 60px;
+            color: #777;
+            font-size: 1.5em;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .hero h2 { font-size: 2em; }
+            .categories { grid-template-columns: 1fr; }
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎓 A2Z Worksheets</h1>
+        <div class="subtitle">Fun & Free Printable Worksheets for Kids!</div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Download Free Worksheets for All Grades!</h2>
+            <p>Math, English, Science, and more! Perfect for homework, practice, and fun learning.</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search worksheets... (Math, Alphabet, Numbers, etc.)">
+            </div>
+        </div>
+
+        <div class="categories" id="categories">
+            <div class="category-card" data-category="math">
+                <div class="category-icon">🔢</div>
+                <h3>Mathematics</h3>
+                <p>Addition, Subtraction, Shapes & More!</p>
+            </div>
+            <div class="category-card" data-category="english">
+                <div class="category-icon">📝</div>
+                <h3>English</h3>
+                <p>Alphabet, Reading, Writing Practice!</p>
+            </div>
+            <div class="category-card" data-category="science">
+                <div class="category-icon">🔬</div>
+                <h3>Science</h3>
+                <p>Animals, Plants, Weather & Experiments!</p>
+            </div>
+            <div class="category-card" data-category="all">
+                <div class="category-icon">🌈</div>
+                <h3>All Worksheets</h3>
+                <p>Browse everything!</p>
+            </div>
+        </div>
+
+        <div class="worksheets-grid" id="worksheetsGrid">
+            <!-- Worksheets will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 A2Z Worksheets | Made with ❤️ for kids who love to learn!</p>
+        <p>📧 contact@a2zworksheets.com | All worksheets are free to download and print!</p>
+    </footer>
+
+    <script>
+        // Sample worksheets data
+        const worksheets = [
+            { id: 1, title: "Addition Practice 1-10", grade: "Grade 1", category: "math", preview: "1+2=?" },
+            { id: 2, title: "Alphabet Tracing A-M", grade: "Kindergarten", category: "english", preview: "ABC" },
+            { id: 3, title: "Number Counting 1-20", grade: "Pre-K", category: "math", preview: "123" },
+            { id: 4, title: "Animal Names Matching", grade: "Grade 1", category: "science", preview: "🐘" },
+            { id: 5, title: "Subtraction Fun 1-10", grade: "Grade 1", category: "math", preview: "5-3=?" },
+            { id: 6, title: "Sight Words Practice", grade: "Kindergarten", category: "english", preview: "the cat" },
+            { id: 7, title: "Shapes Recognition", grade: "Pre-K", category: "math", preview: "🔺🔲" },
+            { id: 8, title: "Parts of a Plant", grade: "Grade 2", category: "science", preview: "🌱" },
+            { id: 9, title: "Vowels Practice", grade: "Grade 1", category: "english", preview: "A E I O U" },
+            { id: 10, title: "Multiplication Basics", grade: "Grade 3", category: "math", preview: "2×3=?" },
+            { id: 11, title: "Weather Chart", grade: "Grade 1", category: "science", preview: "☀️🌧️" },
+            { id: 12, title: "Rhyming Words", grade: "Kindergarten", category: "english", preview: "cat hat" }
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const categories = document.querySelectorAll('.category-card');
+        const worksheetsGrid = document.getElementById('worksheetsGrid');
+
+        function filterWorksheets(category = 'all', searchTerm = '') {
+            let filtered = worksheets.filter(worksheet => {
+                const matchesCategory = category === 'all' || worksheet.category === category;
+                const matchesSearch = worksheet.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                    worksheet.grade.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            displayWorksheets(filtered);
+        }
+
+        function displayWorksheets(workheetsList) {
+            worksheetsGrid.innerHTML = '';
+
+            if (worksheetsList.length === 0) {
+                worksheetsGrid.innerHTML = `
+                    <div class="no-results">
+                        <div style="font-size: 4em; margin-bottom: 20px;">🔍</div>
+                        <h3>No worksheets found!</h3>
+                        <p>Try a different search or category.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            worksheetsList.forEach(worksheet => {
+                const worksheetCard = document.createElement('div');
+                worksheetCard.className = 'worksheet-card';
+                worksheetCard.innerHTML = `
+                    <div class="worksheet-preview">${worksheet.preview}</div>
+                    <div class="worksheet-info">
+                        <div class="worksheet-title">${worksheet.title}</div>
+                        <div class="worksheet-grade">${worksheet.grade}</div>
+                        <button class="download-btn" onclick="downloadWorksheet(${worksheet.id})">
+                            📥 Download PDF
+                        </button>
+                    </div>
+                `;
+                worksheetsGrid.appendChild(worksheetCard);
+            });
+        }
+
+        function downloadWorksheet(id) {
+            // In a real website, this would link to actual PDF files
+            // For demo, we'll show an alert and simulate download
+            alert(`🎉 Great choice! Downloading "${worksheets.find(w => w.id === id).title}"...\n\n(In a real site, this would download a PDF file!)`);
+            
+            // Simulate download link (you'd replace with real PDF URLs)
+            const link = document.createElement('a');
+            link.href = '#';
+            link.download = `a2z-worksheet-${id}.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Event listeners
+        categories.forEach(category => {
+            category.addEventListener('click', () => {
+                const categoryType = category.dataset.category;
+                filterWorksheets(categoryType, searchInput.value);
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            filterWorksheets('all', e.target.value);
+        });
+
+        // Initial load
+        displayWorksheets(worksheets);
+    </script>
+</body>
+</html>
